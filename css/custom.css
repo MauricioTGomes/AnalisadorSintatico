@@ -1,0 +1,91 @@
+.digitePalavra{margin-left: -0.6%;}
+.constructTable  .page-header{margin-bottom: 0; padding-bottom: 0;}
+.constructTable {padding: 2% 0% 0% 2% !important;}
+.valoresTabelaInseridas {display: none;}
+.valoresTabelaBusca {display: none;}
+.palavrasDicionario {width: 65%;}
+.palavrasForaDicionario {width: 65%; margin-left: 1%;}
+table.dadosTabela tbody{height: 300px; overflow: auto;}
+.verificaPalavra{
+    margin-top: 8%;
+    width: 77%;
+    margin-left: 3%;
+    font-size: 16px;
+    position: absolute;
+}
+.glyphicon{cursor: pointer;}
+
+.inseridas-titulo ul{width: 83%;}
+.inseridas-titulo li{list-style: none;}
+.inseridas-titulo > li{border-bottom: 2px solid #449d44; font-weight: bold; padding: 10px;}
+
+.inseridas-titulo:hover .inseridas-lista{
+	display: block !important;
+}
+.inseridas-lista li{font-weight: initial; border-bottom: 1px solid #E0E0E0; padding: 5px;}
+.inseridas-lista li .glyphicon{color: grey;}
+.inseridas-lista li:last-child{border: none !important;}
+.inseridas-lista{ 
+	position: absolute;
+	background-color: #FFF;
+	border: 1px solid #CCC;
+	box-sizing: border-box;
+	padding: 10px;
+	z-index: 10;
+	top: 87%;
+	display: none;
+}
+
+.fora-dicionario-titulo ul{width: 83%;}
+.fora-dicionario-titulo li{list-style: none;}
+.fora-dicionario-titulo > li{border-bottom: 2px solid #c9302c; font-weight: bold; padding: 10px;}
+
+.fora-dicionario-titulo:hover .fora-dicionario-lista{
+	display: block !important;
+}
+.fora-dicionario-lista li{font-weight: initial; border-bottom: 1px solid #E0E0E0; padding: 5px;}
+.fora-dicionario-lista li .glyphicon{color: grey;}
+.fora-dicionario-lista li:last-child{border: none !important;}
+.fora-dicionario-lista{ 
+	position: absolute;
+	background-color: #FFF;
+	border: 1px solid #CCC;
+	box-sizing: border-box;
+	padding: 10px;
+	z-index: 10;
+	top: 87%;
+	display: none;
+}
+input, button, .modal-content{border-radius: 0px !important;}
+
+.textoHeader{
+	padding-left: 700px;
+}
+
+/* Semantico */
+.btnLimarTabelaSintatico{
+	float: right;
+}
+
+.posicao{
+	width: 50px;
+    height: 25px;
+    text-align: center;
+    float: left;
+    padding-bottom: 3px;
+}
+.filaCararteres{margin-left: -30px;}
+.btnGramaticaSintatico{margin-left: 15px;}
+.letraSublinhada{border-bottom: 1px solid red;}
+.fixar {
+    position:fixed;
+    margin-top: 0px !important;
+    width: 85%;
+}
+.menu_fixo{
+	z-index: 1;
+    background-color: white;
+}
+.digiteSentença{padding-top: 0px !important;}
+.fixar .main{padding-bottom: 0px;}
+.tabela-geracao-gramatica{cursor: pointer;}

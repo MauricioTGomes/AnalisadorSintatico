@@ -1,0 +1,255 @@
+<!DOCTYPE hmtl>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/ico_analisador.png">
+    <title>Analisador Sintático</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="javascript:void(0)">Analisador Sintático</a>
+                <a class="navbar-brand textoHeader">Ciência da Computação 2015 - Mauricio Treviso Gomes</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="menu_fixo fixar">
+            <div class="row">
+                <div class="col-sm-12 main digiteSentença">
+                    <div class="row">
+                        <div class="col-sm-5 main">
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control sentencaEntrada" value="acacbb" placeholder="Digite a Sentença" aria-describedby="basic-addon2" />
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="button" class="btn btn-default insereSentença">Inserir</button>
+                            </div>
+                        </div>
+                        <div class="main  col-sm-7">
+                            <button type="button" class="btn btn-info executarSentenca" disabled="disabled" onclick="executarPassoaPasso();">Executar</button>
+                            <button type="button" class="btn btn-success executarTodaSentenCa" disabled="disabled" onclick="executarTudo();">Executar Toda Sentença</button>
+                            <button type="button" class="btn btn-info btnGramaticaSintatico" data-toggle="modal" data-target="#modalGramatica">Gramática</button>
+                            <button type="button" class="btn btn-info btnTabelaSintatico" onclick="limparTabelaGeracao();" data-toggle="modal" data-target="#modalTable">Gerar Senteça</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row main">
+                <div class="col-sm-6">
+                    <table class="table table-hover table-bordered tabela-base">
+                        <thead style="background-color: #F5F5F5;">
+                            <tr>
+                                <td>-</td>
+                                <td>a</td>
+                                <td>b</td>
+                                <td>c</td>
+                                <td>$</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="background-color: #F5F5F5;">S</td>
+                                <td id="Sa">S → aB</td>
+                                <td id="Sb">-</td>
+                                <td id="Sc">S → cC</td>
+                                <td id="Sv">-</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #F5F5F5;">A</td>
+                                <td id="Ac">A → BC</td>
+                                <td id="Ab">A → bB</td>
+                                <td id="Aa">A → BC</td>
+                                <td id="Av">-</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #F5F5F5;">B</td>
+                                <td id="Ba">B → aAb</td>
+                                <td id="Bb">-</td>
+                                <td id="Bc">B → cC</td>
+                                <td id="Bv">B → ε</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #F5F5F5;">C</td>
+                                <td id="Ca">C → aB</td>
+                                <td id="Cb">C → bA</td>
+                                <td id="Cc">C → c</td>
+                                <td id="Cv">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-6">
+                    <h5>Fila</h5>
+                    <div class="col-md-12 filaCararteres">
+                        <div class="posicao letraSublinhada">$</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 24%;">
+            <div class="main constructTable">
+                <div class="table-responsive col-sm-12">
+                    <table class="table table-bordered table-striped dadosTabela">
+                        <thead>
+                            <tr>
+                                <th>Pilha</th>
+                                <th>Entrada</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody class="valoresAcao">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-danger btnLimarTabelaSintatico" data-toggle="modal" data-target="#myModal">Limpar</button>
+            </div>
+        </div>
+        <div class="footer">
+            
+        </div>
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Deseja Limpar a Tabela?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Pense bem..</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning limparTabela" data-toggle="modal" data-target="#myModal">Sim</button>
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="modalGramatica" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Gramática</h4>
+                </div>
+                <div>
+                    <div class="col-sm-4">
+                        <h5>Gramática</h5>
+                        <p>S ::= cC | aB</p>
+                        <p>A ::= bB | BC</p>
+                        <p>B ::= aAb | cC | ε</p>
+                        <p>C ::= aB | bA | c</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h5>Firtst</h5>
+                        <p>S ::= {c, a}</p>
+                        <p>A ::= {b, a, c}</p>
+                        <p>B ::= {a, c, ε}</p>
+                        <p>C ::= {a, b, c}</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h5>Follow</h5>
+                        <p>S ::= {$}</p>
+                        <p>A ::= {b, $, a, c}</p>
+                        <p>B ::= {$, b, a, c}</p>
+                        <p>C ::= {$, b, a, c}</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalGramatica">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Modal Tabela-->
+    <div id="modalTable" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Tabela do Gerador</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover table-bordered tabela-base tabela-geracao-gramatica">
+                        <thead style="background-color: #F5F5F5;">
+                            <tr>
+                                <td>-</td>
+                                <td>a</td>
+                                <td>b</td>
+                                <td>c</td>
+                                <td>$</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="S">
+                                <td style="background-color: #F5F5F5;">S</td>
+                                <td id="Sa" class="tabela_geradora" data-linha="0" data-col="0">S → aB</td>
+                                <td id="Sb" class="tabela_geradora" data-linha="0" data-col="1">-</td>
+                                <td id="Sc" class="tabela_geradora" data-linha="0" data-col="2">S → cC</td>
+                                <td id="Sv" class="tabela_geradora" data-linha="0" data-col="3">-</td>
+                            </tr>
+                            <tr id="A">
+                                <td style="background-color: #F5F5F5;">A</td>
+                                <td id="Ac" class="tabela_geradora" data-linha="1" data-col="0">A → BC</td>
+                                <td id="Ab" class="tabela_geradora" data-linha="1" data-col="1">A → bB</td>
+                                <td id="Aa" class="tabela_geradora" data-linha="1" data-col="2">A → BC</td>
+                                <td id="Av" class="tabela_geradora" data-linha="1" data-col="3">-</td>
+                            </tr>
+                            <tr id="B">
+                                <td style="background-color: #F5F5F5;">B</td>
+                                <td id="Ba" class="tabela_geradora" data-linha="2" data-col="0">B → aAb</td>
+                                <td id="Bb" class="tabela_geradora" data-linha="2" data-col="1">-</td>
+                                <td id="Bc" class="tabela_geradora" data-linha="2" data-col="2">B → cC</td>
+                                <td id="Bv" class="tabela_geradora" data-linha="2" data-col="3">B → ε</td>
+                            </tr>
+                            <tr id="C">
+                                <td style="background-color: #F5F5F5;">C</td>
+                                <td id="Ca" class="tabela_geradora" data-linha="3" data-col="0">C → aB</td>
+                                <td id="Cb" class="tabela_geradora" data-linha="3" data-col="1">C → bA</td>
+                                <td id="Cc" class="tabela_geradora" data-linha="3" data-col="2">C → c</td>
+                                <td id="Cv" class="tabela_geradora" data-linha="3" data-col="3">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <label type="text" class="form-control geracao-gramatica" aria-describedby="basic-addon2">S</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="limparTabelaGeracao();">Limpar Senteça</button>
+                    <button type="button" class="btn btn-info ok-gerador" data-toggle="modal" data-target="#modalTable">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/customSintatico.js"></script>
+</body>
+
+</html>
