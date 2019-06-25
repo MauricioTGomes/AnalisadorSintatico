@@ -8,7 +8,6 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="img/ico_analisador.png">
     <title>Analisador Sintático</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +21,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="javascript:void(0)">Analisador Sintático</a>
-                <a class="navbar-brand textoHeader">Ciência da Computação 2015 - Mauricio Treviso Gomes</a>
+                <span class="textoHeader" style="font-size: 18px; color: #9d9d9d;">Ciência da Computação 2015 - Mauricio Treviso Gomes</span>
             </div>
         </div>
     </nav>
@@ -41,9 +40,10 @@
                         </div>
                         <div class="main  col-sm-7">
                             <button type="button" class="btn btn-info executarSentenca" disabled="disabled" onclick="executarPassoaPasso();">Executar</button>
-                            <button type="button" class="btn btn-success executarTodaSentenCa" disabled="disabled" onclick="executarTudo();">Executar Toda Sentença</button>
+                            <button type="button" class="btn btn-success executarTodaSentenCa" disabled="disabled" onclick="executarTudo();">Executar toda gramática</button>
                             <button type="button" class="btn btn-info btnGramaticaSintatico" data-toggle="modal" data-target="#modalGramatica">Gramática</button>
                             <button type="button" class="btn btn-info btnTabelaSintatico" onclick="limparTabelaGeracao();" data-toggle="modal" data-target="#modalTable">Gerar Senteça</button>
+                            <button type="button" class="btn btn-danger btnLimarTabelaSintatico" data-toggle="modal" data-target="#myModal">Limpar</button>
                         </div>
                     </div>
                 </div>
@@ -116,13 +116,8 @@
                     </table>
                 </div>
             </div>
-            <div class="col-sm-12">
-                <!-- Trigger the modal with a button -->
-                <button type="button" class="btn btn-danger btnLimarTabelaSintatico" data-toggle="modal" data-target="#myModal">Limpar</button>
-            </div>
         </div>
         <div class="footer">
-            
         </div>
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
@@ -131,10 +126,10 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Deseja Limpar a Tabela?</h4>
+                        <h4 class="modal-title">Deseja realmente limpar a tabela?</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Pense bem..</p>
+                        <p>Esta operação não pode ser revertida</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning limparTabela" data-toggle="modal" data-target="#myModal">Sim</button>
