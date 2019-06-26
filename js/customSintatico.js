@@ -215,7 +215,7 @@ function executarPassoaPasso() {
             var htmlAcao1 = "<tr>" +
                 "<td>" + pilha + "</td>" +
                 "<td>" + fila + "</td>" +
-                "<td> Lê " + topoPilha + "</td>" +
+                "<td> Ler " + topoPilha + "</td>" +
                 "</tr>";
             saidaAcao.append(htmlAcao1); //escreve a Acao feita na tabela
 
