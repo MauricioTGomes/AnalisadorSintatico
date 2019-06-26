@@ -148,10 +148,6 @@ $(document).ready(function() {
         var col = $(this).data('col');
 
         var posicaoMatrizGeracao = matrizTabela[linha][col];//Acha a posicao na matriz
-
-        //console.log("Gerou: " + posicaoMatrizGeracao["gerador"]);
-        //console.log("Nao Terminal: " + posicaoMatrizGeracao["naoTerminal"]);
-
         var sentencaQueGerou = $('.geracao-gramatica').text().trim();//Sentenca anterior
         var sentencaGerada = sentencaQueGerou.replace(posicaoMatrizGeracao["naoTerminal"], posicaoMatrizGeracao["gerador"]);
 
